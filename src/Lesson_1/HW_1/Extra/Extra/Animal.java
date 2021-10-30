@@ -1,6 +1,6 @@
-package Lesson_1.LAB_1.Extra;
+package Lesson_1.HW_1.Extra.Extra;
 
-public class Animal implements Comparable { // <Animal>{
+public class Animal implements Comparable {
     String breed;
     int weight;
     int speed;
@@ -17,9 +17,8 @@ public class Animal implements Comparable { // <Animal>{
         return this.breed + " " + this.weight + " " + this.speed + " " + this.price;
     }
 
-    // Сортируем по скорости/цене
-    public int compareTo(Object o) {              //    public int compareTo(Animal o) {
-        int tmp = this.speed - ((Animal)o).speed; //    int tmp = this.speed - o.speed;
+    public int compareTo(Object o) {
+        int tmp = this.speed - ((Animal)o).speed;
 
         if (tmp == 0) {
             int priceCom = this.price - ((Animal)o).price;
@@ -37,7 +36,4 @@ public class Animal implements Comparable { // <Animal>{
             return tmp;
         }
     }
-
-    // Сравнение 2-х строковых значений
-    // return this.breed.compareTo(((Animal)o).breed);
 }

@@ -1,4 +1,4 @@
-package Lesson_1.LAB_1.Extra;
+package Lesson_1.HW_1.Extra.Extra;
 
 import java.util.Arrays;
 
@@ -14,7 +14,7 @@ public class Main {
 
         Animal[] c = {cat, dog, bird, bird1, bird2, bird3, bird4};
 
-        Arrays.sort(c);   // ClassCastException w/o Comparable
+        Arrays.sort(c);
 
         for (Animal tmp : c) {
             System.out.println(tmp);
