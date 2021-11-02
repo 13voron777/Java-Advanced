@@ -9,17 +9,20 @@ public class Run {
 
     public static void main(String[] args) {
         HashMap<String, String> map = getMap();
+        System.out.print("Введите город: ");
         String city = scanner.next();
-        System.out.println(getFamily(map, city));
+        System.out.println("Семья для города " + city + ": " + getFamily(map, city));
     }
 
     public static HashMap<String, String> getMap() {
         HashMap<String, String> res = new HashMap<>();
         while (true) {
+            System.out.print("Введите город: (или . для выхода): ");
             String city = scanner.next();
             if (city.equals(".")) {
                 break;
             }
+            System.out.print("Введите семью: ");
             String family = scanner.next();
             res.put(city, family);
         }
