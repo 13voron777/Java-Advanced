@@ -8,7 +8,7 @@ public class Run {
         String str = "ahb acb aeb aeeb adcb axeb";
         String[] words = str.split(" ");
 
-        Pattern pattern = Pattern.compile("a[hce]b");
+        Pattern pattern = Pattern.compile("a\\wb");
         for (String word : words) {
             Matcher m = pattern.matcher(word);
             if (m.matches()) {
