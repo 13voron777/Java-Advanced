@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Run {
-    public static void main(String[] args) {
+    public static void main(String[] args) { //
         String str = "aa aba abba abbba abca abea";
         String[] words = str.split(" ");
 
