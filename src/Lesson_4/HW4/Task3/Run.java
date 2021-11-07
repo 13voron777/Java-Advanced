@@ -1,28 +1,29 @@
 package Lesson_4.HW4.Task3;
 
-import java.time.Duration;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Run {
     public static void main(String[] args) {
-        getTime(LocalDateTime.of(1996, 7, 10, 8, 30, 0));
+        //System.out.println(LocalDate.of(1999, 4, 19).getMonth().getValue());
+        getTime(LocalDate.of(1996, 11, 10), LocalTime.of(8, 30, 0));
     }
 
-    public static void getTime(LocalDateTime localDateTime1) {
-        LocalDateTime localDateTime2 = LocalDateTime.now();
-        Duration duration = Duration.between(localDateTime1, localDateTime2);
-        long seconds = duration.getSeconds();
-        long minutes = seconds / 60;
-        long hours = minutes / 60;
-        long days = hours / 24;
-        long months = days / 30;
-        long years = months / 12;
+    public static void getTime(LocalDate localDate, LocalTime localTime) {
+        LocalDate localDateNow = LocalDate.now();
+        LocalTime localTimeNow = LocalTime.now();
+        long years = localDateNow.getYear() - localDate.getYear();
+        long months = localDateNow.getMonth().getValue() - localDate.getMonth().getValue();
+        long days = localDateNow.getDayOfMonth() - localDate.getDayOfMonth();
+        long hours = localTimeNow.getHour() - localTime.getHour();
+        long minutes = localTimeNow.getMinute() - localTime.getMinute();
+        long seconds = localTimeNow.getSecond() - localTime.getSecond();
         System.out.println("Вам исполнилось " + years +
-                " лет, " + (months - years * 12) +
-                " месяца, " + (days - years * 12 * 30) +
-                " дней, " + (hours - years * 12 * 30 * 24) +
-                " часа, " + (minutes - years * 12 * 30 * 24 * 60) +
-                " минут и " + (seconds - years * 12 * 30 * 24 * 60 * 60) +
+                " лет, " + months +
+                " месяца, " + days +
+                " дней, " + hours +
+                " часа, " + minutes +
+                " минут и " + seconds +
                 " секунд");
     }
 }
