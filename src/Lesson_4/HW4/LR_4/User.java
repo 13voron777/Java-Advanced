@@ -1,4 +1,4 @@
-package Lesson_4.LAB4.LR_4;
+package Lesson_4.HW4.LR_4;
 
 public class User {
     private String login;
