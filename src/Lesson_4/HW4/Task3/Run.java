@@ -20,12 +20,8 @@ public class Run {
         long minutes = todayMoreNow ? (59 - (duration.getSeconds() % 3600) / 60) :
                 ((duration.getSeconds() % 3600) / 60);
         long seconds = todayMoreNow ? (59 - duration.getSeconds() % 60) : (duration.getSeconds() % 60);
-        System.out.println("Вам исполнилось " + period.getYears() +
-                " лет, " + period.getMonths() +
-                " месяца, " + period.getDays() +
-                " дней, " + hours +
-                " часа, " + minutes +
-                " минут и " + seconds +
-                " секунд");
+        System.out.println("Вам исполнилось " + period.getYears() + " лет, "
+                + period.getMonths() + " месяца, " + period.getDays() + " дней, "
+                + hours + " часа, " + minutes + " минут и " + seconds + " секунд");
     }
 }
