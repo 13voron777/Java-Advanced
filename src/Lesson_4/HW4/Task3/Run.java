@@ -4,7 +4,7 @@ import java.time.*;
 
 public class Run {
     public static void main(String[] args) {
-        getDifference(LocalDateTime.of(2002, 3, 8, 1, 19, 5));
+        getDifference(LocalDateTime.of(1996, 7, 10, 8, 30, 0));
     }
 
     public static void getDifference(LocalDateTime localDateTime) {
@@ -20,7 +20,6 @@ public class Run {
         long minutes = tadayMoreNow ? (59 - (duration.getSeconds() % 3600) / 60) :
                 ((duration.getSeconds() % 3600) / 60);
         long seconds = tadayMoreNow ? (59 - duration.getSeconds() % 60) : (duration.getSeconds() % 60);
-        System.out.println(localDateTimeNow.getSecond());
         System.out.println("Вам исполнилось " + period.getYears() +
                 " лет, " + period.getMonths() +
                 " месяца, " + period.getDays() +
