@@ -13,13 +13,13 @@ public class Run {
                 localDateTimeNow.getMonthValue(), localDateTimeNow.getDayOfMonth(),
                 localDateTime.getHour(), localDateTime.getMinute(), localDateTime.getSecond());
         Period period = Period.between(localDateTime.toLocalDate(), localDateTimeNow.toLocalDate());
-        boolean tadayMoreNow = localDateTimeNow.getHour() < localDateTimeToday.getHour();
-        Duration duration = tadayMoreNow ? Duration.between(localDateTimeNow, localDateTimeToday) :
+        boolean todayMoreNow = localDateTimeNow.getHour() < localDateTimeToday.getHour();
+        Duration duration = todayMoreNow ? Duration.between(localDateTimeNow, localDateTimeToday) :
                 Duration.between(localDateTimeToday, localDateTimeNow);
-        long hours = tadayMoreNow ? (23 - duration.getSeconds() / 3600) : (duration.getSeconds() / 3600);
-        long minutes = tadayMoreNow ? (59 - (duration.getSeconds() % 3600) / 60) :
+        long hours = todayMoreNow ? (23 - duration.getSeconds() / 3600) : (duration.getSeconds() / 3600);
+        long minutes = todayMoreNow ? (59 - (duration.getSeconds() % 3600) / 60) :
                 ((duration.getSeconds() % 3600) / 60);
-        long seconds = tadayMoreNow ? (59 - duration.getSeconds() % 60) : (duration.getSeconds() % 60);
+        long seconds = todayMoreNow ? (59 - duration.getSeconds() % 60) : (duration.getSeconds() % 60);
         System.out.println("Вам исполнилось " + period.getYears() +
                 " лет, " + period.getMonths() +
                 " месяца, " + period.getDays() +
