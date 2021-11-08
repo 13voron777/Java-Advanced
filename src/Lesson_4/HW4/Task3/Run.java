@@ -1,26 +1,29 @@
 package Lesson_4.HW4.Task3;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.*;
 
 public class Run {
     public static void main(String[] args) {
-        //System.out.println(LocalDate.of(1999, 4, 19).getMonth().getValue());
-        getTime(LocalDate.of(1996, 11, 10), LocalTime.of(8, 30, 0));
+        getDifference(LocalDateTime.of(2002, 3, 8, 1, 19, 5));
     }
 
-    public static void getTime(LocalDate localDate, LocalTime localTime) {
-        LocalDate localDateNow = LocalDate.now();
-        LocalTime localTimeNow = LocalTime.now();
-        long years = localDateNow.getYear() - localDate.getYear();
-        long months = localDateNow.getMonth().getValue() - localDate.getMonth().getValue();
-        long days = localDateNow.getDayOfMonth() - localDate.getDayOfMonth();
-        long hours = localTimeNow.getHour() - localTime.getHour();
-        long minutes = localTimeNow.getMinute() - localTime.getMinute();
-        long seconds = localTimeNow.getSecond() - localTime.getSecond();
-        System.out.println("Вам исполнилось " + years +
-                " лет, " + months +
-                " месяца, " + days +
+    public static void getDifference(LocalDateTime localDateTime) {
+        LocalDateTime localDateTimeNow = LocalDateTime.now();
+        LocalDateTime localDateTimeToday = LocalDateTime.of(localDateTimeNow.getYear(),
+                localDateTimeNow.getMonthValue(), localDateTimeNow.getDayOfMonth(),
+                localDateTime.getHour(), localDateTime.getMinute(), localDateTime.getSecond());
+        Period period = Period.between(localDateTime.toLocalDate(), localDateTimeNow.toLocalDate());
+        boolean tadayMoreNow = localDateTimeNow.getHour() < localDateTimeToday.getHour();
+        Duration duration = tadayMoreNow ? Duration.between(localDateTimeNow, localDateTimeToday) :
+                Duration.between(localDateTimeToday, localDateTimeNow);
+        long hours = tadayMoreNow ? (23 - duration.getSeconds() / 3600) : (duration.getSeconds() / 3600);
+        long minutes = tadayMoreNow ? (59 - (duration.getSeconds() % 3600) / 60) :
+                ((duration.getSeconds() % 3600) / 60);
+        long seconds = tadayMoreNow ? (59 - duration.getSeconds() % 60) : (duration.getSeconds() % 60);
+        System.out.println(localDateTimeNow.getSecond());
+        System.out.println("Вам исполнилось " + period.getYears() +
+                " лет, " + period.getMonths() +
+                " месяца, " + period.getDays() +
                 " дней, " + hours +
                 " часа, " + minutes +
                 " минут и " + seconds +
