@@ -4,7 +4,7 @@ public class Cat {
     private String name;
     private int age;
 
-    public void sayMeow() {
+    private void sayMeow() {
         System.out.println("Meow!");
     }
 

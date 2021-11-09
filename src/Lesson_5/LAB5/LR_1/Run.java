@@ -1,9 +1,6 @@
 package Lesson_5.LAB5.LR_1;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
+import java.lang.reflect.*;
 
 public class Run {
     public static void main(String[] args) {
@@ -53,7 +50,8 @@ public class Run {
         System.out.println();
 
         System.out.println("Superclasses: ");
-
+        Class<?> superclass = cat.getSuperclass();
+        System.out.println(superclass.getName() + "\n");
 
         System.out.println("Set and get by name: ");
         try {
@@ -72,8 +70,16 @@ public class Run {
         } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
         }
+        System.out.println();
 
-
-        //invoke sayMeow() by name
+        System.out.println("Invoke sayMeow() by name");
+        try {
+            Method method = cat.getDeclaredMethod("sayMeow");
+            method.setAccessible(true);
+            method.invoke(cat1);
+            method.setAccessible(false);
+        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+            e.printStackTrace();
+        }
     }
 }
