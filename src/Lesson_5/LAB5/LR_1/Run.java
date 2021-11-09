@@ -1,6 +1,8 @@
 package Lesson_5.LAB5.LR_1;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
 public class Run {
@@ -19,27 +21,38 @@ public class Run {
         System.out.println("Modificators: ");
         int mods = cat.getModifiers();
         if (Modifier.isPrivate(mods)) {
-            System.out.println("private");
+            System.out.print("private");
         }
         if (Modifier.isProtected(mods)) {
-            System.out.println("protected");
+            System.out.print("protected");
         }
         if (Modifier.isPublic(mods)) {
-            System.out.println("public");
+            System.out.print("public");
+        }
+        if (Modifier.isFinal(mods)) {
+            System.out.print("final");
         }
         System.out.println();
 
         System.out.println("Methods: ");
+        Method[] methods = cat.getMethods();
+        for (Method method : methods) {
+            System.out.println("Method name: " + method.getName());
+            System.out.println("Method return type: " + method.getReturnType().getName() + "\n");
+        }
 
+        System.out.println("Constructors: ");
+        Constructor[] constructors = cat.getConstructors();
+        for (Constructor constructor : constructors) {
+            System.out.println(constructor.getName());
+            Class[] paramTypes = constructor.getParameterTypes();
+            for (Class<?> paramType : paramTypes) {
+                System.out.println(paramType.getName());
+            }
+        }
+        System.out.println();
 
-
-        //constants
-
-
-        //constructors
-
-
-        //superclasses
+        System.out.println("Superclasses: ");
 
 
         System.out.println("Set and get by name: ");

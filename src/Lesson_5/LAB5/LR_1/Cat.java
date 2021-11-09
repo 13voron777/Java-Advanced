@@ -5,7 +5,7 @@ public class Cat {
     private int age;
 
     public void sayMeow() {
-
+        System.out.println("Meow!");
     }
 
     @Override
