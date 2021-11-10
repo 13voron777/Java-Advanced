@@ -1,13 +1,22 @@
-package Lesson_5.HW5.Task3;
+package Lesson_5.HW5.Task2;
 
-import java.lang.reflect.*;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
+import java.util.ArrayList;
 
 public class Run {
     public static void main(String[] args) {
-        Class<?> plane = Plane.class;
+        Class<?> arrayListClass = ArrayList.class;
+        System.out.println("Class information:");
+        System.out.println("Name: " + arrayListClass.getName());
+        System.out.println("SimpleName: " + arrayListClass.getSimpleName());
+        System.out.println("Is interface? " + arrayListClass.isInterface());
+        System.out.println("Package name: " + arrayListClass.getPackageName() + "\n");
 
         System.out.println("Fields: ");
-        Field[] fields = plane.getDeclaredFields();
+        Field[] fields = arrayListClass.getDeclaredFields();
         int i = 1;
         for (Field field : fields) {
             Class<?> type = field.getType();
@@ -18,8 +27,8 @@ public class Run {
         System.out.println();
 
         System.out.println("Modificators: ");
-        int mods = plane.getModifiers();
-        System.out.print("Class Plane modificator: ");
+        int mods = arrayListClass.getModifiers();
+        System.out.print("Class Plane modificators: ");
         defineModificators(mods);
         System.out.println("Fields modificators: ");
         for (Field field : fields) {
@@ -27,14 +36,14 @@ public class Run {
             System.out.print("Field " + field.getName() + ": ");
             defineModificators(modsFields);
         }
-        Method[] methods = plane.getMethods();
+        Method[] methods = arrayListClass.getMethods();
         System.out.println("Methods modificators: ");
         for (Method method : methods) {
             int modsMethods = method.getModifiers();
             System.out.print("Method " + method.getName() + ": ");
             defineModificators(modsMethods);
         }
-        Constructor[] constructors = plane.getConstructors();
+        Constructor[] constructors = arrayListClass.getConstructors();
         System.out.println("Constructors modificators: ");
         i = 1;
         for (Constructor constructor : constructors) {
@@ -66,14 +75,26 @@ public class Run {
     }
 
     public static void defineModificators(int mods) {
+        if (Modifier.isInterface(mods)) {
+            System.out.print("interface ");
+        }
         if (Modifier.isPrivate(mods)) {
-            System.out.print("private");
+            System.out.print("private ");
         }
         if (Modifier.isProtected(mods)) {
-            System.out.print("protected");
+            System.out.print("protected ");
         }
         if (Modifier.isPublic(mods)) {
-            System.out.print("public");
+            System.out.print("public ");
+        }
+        if (Modifier.isFinal(mods)) {
+            System.out.print("final ");
+        }
+        if (Modifier.isAbstract(mods)) {
+            System.out.print("abstract ");
+        }
+        if (Modifier.isStatic(mods)) {
+            System.out.print("static ");
         }
         System.out.println();
     }
