@@ -8,8 +8,12 @@ public class Run {
         Animal animal = new Animal("Wolf", 10, true);
 
         try (ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(file))) {
+            ObjectInputStream oi = new ObjectInputStream(new FileInputStream(file));
             os.writeObject(animal);
-        } catch (IOException e) {
+
+            Animal animal1 = (Animal) oi.readObject();
+            System.out.println(animal1);
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
