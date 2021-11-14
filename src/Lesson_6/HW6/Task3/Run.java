@@ -9,7 +9,7 @@ public class Run {
         for (Class<?> cl : classes) {
             if (cl.isAnnotationPresent(DescCar.class)) {
                 DescCar descCar = cl.getAnnotation(DescCar.class);
-                System.out.println(descCar.name());
+                System.out.println("Class: " + cl.getSimpleName() + ", name in annotation DescCar: " + descCar.name());
             }
         }
     }
