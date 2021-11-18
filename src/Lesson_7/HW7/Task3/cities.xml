@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<address>
+    <city name="Warszawa">
+        <street>Pl.Constytucji</street>
+        <house>3</house>
+    </city>
+    <city name="Moscow">
+        <street>Prechistenka</street>
+        <house>16</house>
+    </city>
+</address>
