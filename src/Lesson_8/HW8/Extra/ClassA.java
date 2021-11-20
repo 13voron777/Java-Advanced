@@ -5,11 +5,12 @@ public class ClassA extends Thread {
 
     @Override
     public void run() {
-        synchronized (this) {
+        try {
             methodA1();
-        }
-        synchronized (this) {
+            Thread.sleep(3000);
             methodA2();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
