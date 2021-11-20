@@ -5,8 +5,12 @@ public class ClassA extends Thread {
 
     @Override
     public void run() {
-        methodA1();
-        methodA2();
+        synchronized (this) {
+            methodA1();
+        }
+        synchronized (this) {
+            methodA2();
+        }
     }
 
     public synchronized void methodA1() {
