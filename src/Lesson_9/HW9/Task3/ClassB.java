@@ -13,11 +13,13 @@ public class ClassB extends Thread {
         System.out.println("ClassB started");
         try {
             sleep(2000);
-            System.out.println("ClassB interrupted");
+            if (thread1.isAlive()) {
+                interrupt();
+            }
             thread1.join();
             System.out.println("ClassB finished");
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("ClassB interrupted");
         } finally {
             lock.unlock();
         }

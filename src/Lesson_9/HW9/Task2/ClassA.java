@@ -8,7 +8,6 @@ public class ClassA extends Thread {
         System.out.println("ClassA started");
         try {
             sleep(2000);
-            System.out.println("ClassA interrupted");
             thread2.join();
         } catch (Exception e) {
             e.printStackTrace();
