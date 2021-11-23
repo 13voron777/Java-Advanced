@@ -1,6 +1,5 @@
 package Lesson_10.LAB10.LAB1;
 
-import java.util.function.Predicate;
 
 public class Run {
     public static void main(String[] args) {
@@ -14,9 +13,6 @@ public class Run {
         Range range = (e, c, d) -> System.out.println(e + " is between " + c + " and " + d + ": "
                 + (e > c && e < d));
         Mult mult = (c, d) -> System.out.println(c + " divided by " + d + " clearly: " + (c % d == 0));
-        //Actions actions3 = (a) -> System.out.println(a % 2 == 0);
-        //Actions actions4 = (a) -> System.out.println(a % 2 == 0);
-
 
         actions1.print(a);
         actions1.print(b);
@@ -29,7 +25,5 @@ public class Run {
         //
         mult.print(b, a2);
         mult.print(b, b2);
-        //actions3.print();
-        //actions4.print();
     }
 }
